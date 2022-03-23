@@ -34,26 +34,32 @@ class WalletDocumentScreen extends StatefulWidget {
 
 class _WalletDocumentScreenState extends State<WalletDocumentScreen> {
   String? img64;
-  ImagePicker picker = new ImagePicker();
+  final ImagePicker picker = ImagePicker();
   bool imagePicked = false;
   List imagelist = ['Camera', 'Media'];
 
   getImage(ImageSource source) async {
-    final pickedFile = await picker.pickImage(source: source);
-    Navigator.pop(context);
-    setState(
-      () {
-        if (pickedFile != null) {
-          final bytes = Io.File(pickedFile.path).readAsBytesSync();
-          img64 = base64Encode(bytes);
-          print(img64);
-          imagePicked = true;
-          getFileUpload(img64, "png");
-        } else {
-          print('No image selected.');
-        }
-      },
-    );
+    try {
+
+      XFile? pickedFile = await picker.pickImage(source: source);
+      Navigator.pop(context);
+      setState(
+              () {
+            if (pickedFile != null) {
+              final bytes = Io.File(pickedFile.path).readAsBytesSync();
+              img64 = base64Encode(bytes);
+              print(img64);
+              imagePicked = true;
+              getFileUpload(img64, "png");
+            } else {
+              print('No image selected.');
+            }
+          },
+      );
+
+    } catch (error) {
+      print(error);
+    }
   }
 
   Future modelBottomSheetCamera(BuildContext context) {

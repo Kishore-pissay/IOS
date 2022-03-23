@@ -56,11 +56,11 @@ class CustomWidgets {
             height: 40.0,
             child: Image.asset('assets/images/AppLogo.png'),
           ),
-          SizedBox(width: 10.0),
+          SizedBox(width: 20.0),
           Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text('FINTECH FILINGS',
+              Text('FINTECH FILINGS PVT LTD',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 22.0,

@@ -88,8 +88,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   final data = snap.data;
                   userNameController.text = data!.recordInfo!.lastName!;
                   userPasswordController.text = data.recordInfo!.passwordC!;
-                  aadharNoController.text = data.recordInfo!.aadharNumberC!;
-                  panNoController.text = data.recordInfo!.panNumberC!;
+                  // aadharNoController.text = data.recordInfo!.aadharNumberC!;
+                  // panNoController.text = data.recordInfo!.panNumberC!;
                   mobileNoController.text = data.recordInfo!.phone!;
                   emailController.text = data.recordInfo!.email!;
                   gstNoController.text =
